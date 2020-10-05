@@ -1,12 +1,16 @@
+import { container } from '@IOC';
+import { TYPES } from '@Types';
+import { IDeviceRepo } from '@Repos';
 import { IDevice } from '@Entities/Device';
 import { IHttpRequest } from 'src/HttpRequest';
-import { deviceRepo } from '../../index';
 
 // query store for connected-devices that belongs to a user
 
 export default async function handle(
   request: IHttpRequest
 ): Promise<IDevice[]> {
+  const deviceRepo = container.get<IDeviceRepo>(TYPES.DeviceRepo);
+
   let currentUser = getCurrentUser();
 
   if (!currentUser) {

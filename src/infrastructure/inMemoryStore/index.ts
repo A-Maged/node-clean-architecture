@@ -5,14 +5,10 @@ type Ok = 'OK';
 export interface IInMemoryStoreDriver {
   get(key: string): Promise<string | null>;
   set(key: string, value: any): Promise<Ok | null>;
+  connect(callback?: (() => void) | undefined): Promise<void>;
 }
 
-let driver: IInMemoryStoreDriver | null = null;
-
-/* connect to redis & export actual driver */
-
-export function InMemoryStoreDriver(): IInMemoryStoreDriver {
-  return driver || new Redis({
-    password: "foobared"
-  }); // Connect to 127.0.0.1:6379;
-}
+export let InMemoryStoreDriver: IInMemoryStoreDriver = new Redis({
+  lazyConnect: true,
+  password: 'foobared',
+});

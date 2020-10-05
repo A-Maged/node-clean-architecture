@@ -1,13 +1,17 @@
-import { DBDriver } from '@DB';
-import { InMemoryStoreDriver } from '@InMemoryStore';
-import { DeviceRepo, UserRepo } from '@Repos';
+import { container } from '@IOC';
+import { TYPES } from '@Types';
+import { IDeviceRepo, IUserRepo } from '@Repos';
+import { IDBDriver } from './infrastructure/db/driver';
+import { IInMemoryStoreDriver } from '@InMemoryStore';
 
 /* databases */
-const dbDriver = new DBDriver({});
-const inMemoryStoreDriver = InMemoryStoreDriver();
+// const dbDriver = container.get<IDBDriver>(TYPES.DBDriver);
+// const inMemoryStoreDriver = container.get<IInMemoryStoreDriver>(
+//   TYPES.InMemoryStoreDriver
+// );
 
 /* repos */
-const deviceRepo = new DeviceRepo(dbDriver, inMemoryStoreDriver);
-const userRepo = new UserRepo(dbDriver, inMemoryStoreDriver);
+const deviceRepo = container.get<IDeviceRepo>(TYPES.DeviceRepo);
+const userRepo = container.get<IUserRepo>(TYPES.UserRepo);
 
 export { deviceRepo, userRepo };
