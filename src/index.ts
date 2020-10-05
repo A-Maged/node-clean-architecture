@@ -12,9 +12,9 @@ import router from '@Router';
 
 /* Todo: for testing */
 import getConnectedDevices from '@Usecases/device/getConnectedDevices';
-import { IDBDriver } from './infrastructure/db/driver';
-import { container } from '@IOC';
-import { TYPES } from '@Types';
+import { IDBDriver } from '@DB';
+import { container } from '@Ioc';
+import { TYPES } from '@IocTypes';
 import { IInMemoryStoreDriver } from '@InMemoryStore';
 import { exit } from 'process';
 

@@ -1,6 +1,6 @@
 import { inject, injectable } from 'inversify';
 
-import { TYPES } from '@Types';
+import { TYPES } from '@IocTypes';
 import { IDBDriver } from '@DB';
 import { IDevice } from '@Entities/Device';
 import { IUser } from '@Entities/User';

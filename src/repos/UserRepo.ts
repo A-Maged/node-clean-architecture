@@ -2,7 +2,7 @@ import { inject, injectable } from 'inversify';
 
 import { IDBDriver } from '@DB';
 import { IInMemoryStoreDriver } from '@InMemoryStore';
-import { TYPES } from '@Types';
+import { TYPES } from '@IocTypes';
 
 export interface IUserRepo {}
 
