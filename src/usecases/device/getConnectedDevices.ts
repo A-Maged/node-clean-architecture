@@ -1,7 +1,7 @@
 import { container } from '@Ioc';
 import { IOC_TYPES } from '@IocTypes';
 import { IDeviceRepo } from '@Repos';
-import { IDevice } from '@Entities/Device';
+import { IDevice } from '@Entities';
 import { IHttpRequest } from '@Usecases/interfaces/HttpRequest';
 
 // query store for connected-devices that belongs to a user

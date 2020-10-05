@@ -2,8 +2,7 @@ import { inject, injectable } from 'inversify';
 
 import { IOC_TYPES } from '@IocTypes';
 import { IDBDriver } from '@DB';
-import { IDevice } from '@Entities/Device';
-import { IUser } from '@Entities/User';
+import { IDevice, IUser } from '@Entities';
 import { IInMemoryStoreDriver } from '@InMemoryStore';
 
 export interface IDeviceRepo {
