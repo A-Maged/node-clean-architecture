@@ -14,7 +14,7 @@ import router from '@Router';
 import getConnectedDevices from '@Usecases/device/getConnectedDevices';
 import { IDBDriver } from '@DB';
 import { container } from '@Ioc';
-import { TYPES } from '@IocTypes';
+import { IOC_TYPES } from '@IocTypes';
 import { IInMemoryStoreDriver } from '@InMemoryStore';
 import { exit } from 'process';
 
@@ -47,10 +47,10 @@ app.get('/devices', async (req: ExpressRequest, res: ExpressResponse) => {
 run();
 
 async function run() {
-  const dbDriver = container.get<IDBDriver>(TYPES.DBDriver);
+  const dbDriver = container.get<IDBDriver>(IOC_TYPES.DBDriver);
 
   const inMemoryStoreDriver = container.get<IInMemoryStoreDriver>(
-    TYPES.InMemoryStoreDriver
+    IOC_TYPES.InMemoryStoreDriver
   );
 
   try {

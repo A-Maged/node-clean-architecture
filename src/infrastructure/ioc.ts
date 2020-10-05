@@ -1,20 +1,20 @@
 import { Container } from 'inversify';
 
-import { TYPES } from '@IocTypes';
+import { IOC_TYPES } from '@IocTypes';
 import { IDBDriver, DBDriver } from '@DB';
 import { IInMemoryStoreDriver, InMemoryStoreDriver } from '@InMemoryStore';
 import { DeviceRepo, IDeviceRepo, UserRepo, IUserRepo } from '@Repos';
 
 const container = new Container();
 
-container.bind<IDBDriver>(TYPES.DBDriver).to(DBDriver).inSingletonScope();
+container.bind<IDBDriver>(IOC_TYPES.DBDriver).to(DBDriver).inSingletonScope();
 
 container
-  .bind<IInMemoryStoreDriver>(TYPES.InMemoryStoreDriver)
+  .bind<IInMemoryStoreDriver>(IOC_TYPES.InMemoryStoreDriver)
   .toConstantValue(InMemoryStoreDriver);
 
-container.bind<IDeviceRepo>(TYPES.DeviceRepo).to(DeviceRepo).inSingletonScope();
+container.bind<IDeviceRepo>(IOC_TYPES.DeviceRepo).to(DeviceRepo).inSingletonScope();
 
-container.bind<IUserRepo>(TYPES.UserRepo).to(UserRepo).inSingletonScope();
+container.bind<IUserRepo>(IOC_TYPES.UserRepo).to(UserRepo).inSingletonScope();
 
 export { container };

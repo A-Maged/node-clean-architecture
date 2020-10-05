@@ -1,5 +1,5 @@
 import { container } from '@Ioc';
-import { TYPES } from '@IocTypes';
+import { IOC_TYPES } from '@IocTypes';
 import { IDeviceRepo } from '@Repos';
 import { IDevice } from '@Entities/Device';
 import { IHttpRequest } from 'src/HttpRequest';
@@ -9,7 +9,7 @@ import { IHttpRequest } from 'src/HttpRequest';
 export default async function execute(
   request: IHttpRequest
 ): Promise<IDevice[]> {
-  const deviceRepo = container.get<IDeviceRepo>(TYPES.DeviceRepo);
+  const deviceRepo = container.get<IDeviceRepo>(IOC_TYPES.DeviceRepo);
 
   let currentUser = getCurrentUser();
 

@@ -1,6 +1,6 @@
 import { inject, injectable } from 'inversify';
 
-import { TYPES } from '@IocTypes';
+import { IOC_TYPES } from '@IocTypes';
 import { IDBDriver } from '@DB';
 import { IDevice } from '@Entities/Device';
 import { IUser } from '@Entities/User';
@@ -13,10 +13,10 @@ export interface IDeviceRepo {
 @injectable()
 export class DeviceRepo implements IDeviceRepo {
   constructor(
-    @inject(TYPES.DBDriver)
+    @inject(IOC_TYPES.DBDriver)
     private dbDriver: IDBDriver,
 
-    @inject(TYPES.InMemoryStoreDriver)
+    @inject(IOC_TYPES.InMemoryStoreDriver)
     private inMemoryStoreDriver: IInMemoryStoreDriver
   ) {}
 
