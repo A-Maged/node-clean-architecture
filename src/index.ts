@@ -42,27 +42,30 @@ app.get('/devices', async (req: ExpressRequest, res: ExpressResponse) => {
   }
 });
 
-const dbDriver = container.get<IDBDriver>(TYPES.DBDriver);
-
-const inMemoryStoreDriver = container.get<IInMemoryStoreDriver>(
-  TYPES.InMemoryStoreDriver
-);
-
 /* Start App */
-dbDriver
-  .connect()
-  .then(inMemoryStoreDriver.connect.bind(inMemoryStoreDriver))
-  .catch(handleInMemoryStoreConnectError)
-  .then(startServer);
 
-function handleInMemoryStoreConnectError(err: Error) {
-  console.log(`can't conncect to inMemoryStore`);
-  console.log(err);
-  exit(1);
-}
+run();
 
-function startServer() {
-  app.listen(PORT, () => {
-    console.log(`listening on http://localhost:${PORT}`);
-  });
+async function run() {
+  const dbDriver = container.get<IDBDriver>(TYPES.DBDriver);
+
+  const inMemoryStoreDriver = container.get<IInMemoryStoreDriver>(
+    TYPES.InMemoryStoreDriver
+  );
+
+  try {
+    await dbDriver.connect();
+
+    await inMemoryStoreDriver.connect();
+
+    app.listen(PORT, () => {
+      console.log(`listening on http://localhost:${PORT}`);
+    });
+  } catch (error) {
+    console.log(`Can't Start Server`);
+
+    console.error(error);
+
+    exit(1);
+  }
 }
