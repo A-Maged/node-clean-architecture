@@ -1,5 +1,5 @@
-import { container } from '@Ioc';
-import { IOC_TYPES } from '@IocTypes';
+import { container } from 'src/ioc';
+import { IOC_TYPES } from 'src/ioc-types';
 import { IDeviceRepo } from '@Repos';
 import { IDevice } from '@Entities';
 import { IHttpRequest } from '@Usecases/interfaces/HttpRequest';

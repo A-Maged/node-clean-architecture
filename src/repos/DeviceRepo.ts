@@ -1,6 +1,6 @@
 import { inject, injectable } from 'inversify';
 
-import { IOC_TYPES } from '@IocTypes';
+import { IOC_TYPES } from 'src/ioc-types';
 import { IDBDriver } from '@DB';
 import { IDevice, IUser } from '@Entities';
 import { IInMemoryStoreDriver } from '@InMemoryStore';

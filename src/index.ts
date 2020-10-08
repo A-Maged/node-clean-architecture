@@ -12,8 +12,8 @@ import { adaptHttpReq } from '@Adapters/httpAdapters';
 import router from '@Router';
 
 /* Todo: for testing */
-import { container } from '@Ioc';
-import { IOC_TYPES } from '@IocTypes';
+import { container } from 'src/ioc';
+import { IOC_TYPES } from 'src/ioc-types';
 import { IDBDriver } from '@DB';
 import { IInMemoryStoreDriver } from '@InMemoryStore';
 import getConnectedDevices from '@Usecases/device/getConnectedDevices';

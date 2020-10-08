@@ -1,6 +1,6 @@
 import { Container } from 'inversify';
 
-import { IOC_TYPES } from '@IocTypes';
+import { IOC_TYPES } from 'src/ioc-types';
 import { IDBDriver, DBDriver } from '@DB';
 import { IInMemoryStoreDriver, InMemoryStoreDriver } from '@InMemoryStore';
 import { DeviceRepo, IDeviceRepo, UserRepo, IUserRepo } from '@Repos';
