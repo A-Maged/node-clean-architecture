@@ -7,23 +7,23 @@ import express, {
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 
+import { config } from './config';
 import { adaptHttpReq } from '@Adapters/httpAdapters';
 import router from '@Router';
 
 /* Todo: for testing */
-import getConnectedDevices from '@Usecases/device/getConnectedDevices';
-import { IDBDriver } from '@DB';
 import { container } from '@Ioc';
 import { IOC_TYPES } from '@IocTypes';
+import { IDBDriver } from '@DB';
 import { IInMemoryStoreDriver } from '@InMemoryStore';
+import getConnectedDevices from '@Usecases/device/getConnectedDevices';
 import { exit } from 'process';
 
-const PORT = 8000;
 const app = express();
 
 /* Global Middlewares */
 app.use(bodyParser.json());
-app.use(cookieParser(process.env.COOKIES_SECRET));
+app.use(cookieParser(config.cookiesSecret));
 
 /* Register Routes */
 let { deviceRouter } = router();
@@ -54,12 +54,10 @@ async function run() {
   );
 
   try {
-    await dbDriver.connect();
+    await Promise.all([dbDriver.connect(), inMemoryStoreDriver.connect()]);
 
-    await inMemoryStoreDriver.connect();
-
-    app.listen(PORT, () => {
-      console.log(`listening on http://localhost:${PORT}`);
+    app.listen(config.httpPort, config.host, () => {
+      console.log(`listening on http://${config.host}:${config.httpPort}`);
     });
   } catch (error) {
     console.log(`Can't Start Server`);

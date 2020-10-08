@@ -9,7 +9,7 @@
   "devDependencies": {
     "@ef-carbon/tspm": "^2.2.5",
     "@types/express": "^4.17.8",
-    "@types/node": "^14.11.2",
+    "@types/node": "^14.11.5",
     "babel-plugin-module-resolver": "^4.0.0",
     "ts-node": "^9.0.0",
     "tsconfig-paths": "^3.9.0",
@@ -26,6 +26,7 @@
     "express": "^4.17.1",
     "inversify": "^5.0.1",
     "ioredis": "^4.17.3",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "sugar-env": "^1.5.13"
   }
 }
