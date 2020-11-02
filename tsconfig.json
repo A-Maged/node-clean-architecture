@@ -9,7 +9,7 @@
       "@Usecases/*": ["src/usecases/*"],
       "@Adapters/*": ["src/adapters/*"],
       "@Repos": ["src/repos/index.ts"],
-      "@Router": ["src/infrastructure/router/index.ts"],
+      "@Router": ["src/infrastructure/web/router/index.ts"],
       "@DB": ["src/infrastructure/db/index.ts"],
       "@InMemoryStore": ["src/infrastructure/inMemoryStore/index.ts"],
       "@Ioc": ["src/ioc.ts"],
