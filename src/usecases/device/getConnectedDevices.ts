@@ -1,6 +1,6 @@
 import { container } from 'src/ioc';
 import { IOC_TYPES } from 'src/ioc-types';
-import { IDeviceRepo } from '@Repos';
+import { IDeviceRepo, IUserRepo } from '@Repos';
 import { IDevice } from '@Entities';
 import { IHttpRequest } from '@Usecases/interfaces/HttpRequest';
 
@@ -8,10 +8,11 @@ import { IHttpRequest } from '@Usecases/interfaces/HttpRequest';
 
 export default async function execute(
   request: IHttpRequest
-): Promise<IDevice[]> {
+): Promise<IDevice[] | []> {
   const deviceRepo = container.get<IDeviceRepo>(IOC_TYPES.DeviceRepo);
+  const userRepo = container.get<IUserRepo>(IOC_TYPES.UserRepo);
 
-  let currentUser = getCurrentUser();
+  let currentUser = userRepo.getCurrentUser(request);
 
   if (!currentUser) {
     throw new Error('User not logged in');
@@ -20,9 +21,4 @@ export default async function execute(
   let devices = await deviceRepo.getConnectedDevices(currentUser.id);
 
   return Promise.resolve(devices);
-}
-
-/* TODO: replace stup */
-function getCurrentUser() {
-  return { id: 'regthn' };
 }

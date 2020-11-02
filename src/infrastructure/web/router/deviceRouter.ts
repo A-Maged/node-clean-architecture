@@ -6,21 +6,18 @@ import {
 import getConnectedDevices from '@Usecases/device/getConnectedDevices';
 import { adaptHttpReq } from '@Adapters/httpAdapters';
 
-const deviceRouter = Router();
+const router = Router();
 
-deviceRouter.get(
-  '/devices',
-  async (req: ExpressRequest, res: ExpressResponse) => {
-    try {
-      const httpRequest = adaptHttpReq(req);
+router.get('/devices', async (req: ExpressRequest, res: ExpressResponse) => {
+  try {
+    const httpRequest = adaptHttpReq(req);
 
-      let httpResponse = await getConnectedDevices(httpRequest);
+    let httpResponse = await getConnectedDevices(httpRequest);
 
-      res.send(httpResponse);
-    } catch (error) {
-      res.send(error.message);
-    }
+    res.send(httpResponse);
+  } catch (error) {
+    res.send(error.message);
   }
-);
+});
 
-export default deviceRouter;
+export default router;

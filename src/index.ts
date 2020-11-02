@@ -36,9 +36,9 @@ async function run() {
   try {
     await Promise.all([dbDriver.connect(), inMemoryStoreDriver.connect()]);
 
-    app.listen(config.httpPort, config.host, () => {
-      console.log(`listening on http://${config.host}:${config.httpPort}`);
-    });
+    app.listen(config.httpPort, config.host, () =>
+      console.log(`listening on http://${config.host}:${config.httpPort}`)
+    );
   } catch (error) {
     console.log(`Can't Start Server`);
 
