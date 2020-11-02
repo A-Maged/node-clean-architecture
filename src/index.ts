@@ -1,24 +1,19 @@
 import 'reflect-metadata';
 import express from 'express';
-import bodyParser from 'body-parser';
-import cookieParser from 'cookie-parser';
 import { exit } from 'process';
 
 import config from '@Config';
 import routers from '@Routers';
 import { IDBDriver } from '@DB';
 import { IInMemoryStoreDriver } from '@InMemoryStore';
-
 import { container } from 'src/ioc';
 import { IOC_TYPES } from 'src/ioc-types';
+import { globalMiddlewares } from '@Web/middlewares';
 
 const app = express();
 
 /* Global Middlewares */
-app.use(bodyParser.json());
-app.use(cookieParser(config.cookiesSecret));
-
-/* Custom Middlewares */
+app.use(globalMiddlewares);
 
 /* Register Routes */
 app.use(routers.deviceRouter);

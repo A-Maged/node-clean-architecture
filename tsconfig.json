@@ -12,6 +12,7 @@
       "@Routers": ["src/infrastructure/web/router/index.ts"],
       "@DB": ["src/infrastructure/db/index.ts"],
       "@InMemoryStore": ["src/infrastructure/inMemoryStore/index.ts"],
+      "@Web/*": ["src/infrastructure/web/*"],
       "@Ioc": ["src/ioc.ts"],
       "@IocTypes": ["src/ioc-types.ts"],
       "@Config": ["src/config.ts"]
