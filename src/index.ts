@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser';
 import { exit } from 'process';
 
 import config from '@Config';
-import routers from '@Router';
+import routers from '@Routers';
 import { IDBDriver } from '@DB';
 import { IInMemoryStoreDriver } from '@InMemoryStore';
 
