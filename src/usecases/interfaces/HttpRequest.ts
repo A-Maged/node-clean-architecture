@@ -18,6 +18,6 @@ export default class HttpRequest implements IHttpRequest {
     this.body = req.body;
     this.headers = req.headers;
     this.path = req.path;
-    this.cookies = req.cookies;
+    this.cookies = req.cookies || req.signedCookies;
   }
 }

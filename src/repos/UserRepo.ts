@@ -22,6 +22,10 @@ export class UserRepo implements IUserRepo {
 
   /* TODO: replace stup */
   getCurrentUser(request: IHttpRequest): IUser | null {
-    return { id: 'regthn' };
+    if (!request.cookies) {
+      return null;
+    }
+
+    return { id: 'cewv' };
   }
 }
