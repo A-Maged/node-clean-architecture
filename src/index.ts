@@ -1,12 +1,10 @@
 import 'reflect-metadata';
-
 import express from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import { exit } from 'process';
 
 import config from '@Config';
-
 import routers from '@Router';
 import { IDBDriver } from '@DB';
 import { IInMemoryStoreDriver } from '@InMemoryStore';
@@ -19,6 +17,8 @@ const app = express();
 /* Global Middlewares */
 app.use(bodyParser.json());
 app.use(cookieParser(config.cookiesSecret));
+
+/* Custom Middlewares */
 
 /* Register Routes */
 app.use(routers.deviceRouter);
