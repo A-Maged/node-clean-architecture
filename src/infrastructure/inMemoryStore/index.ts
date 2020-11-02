@@ -8,7 +8,11 @@ export interface IInMemoryStoreDriver {
   connect(callback?: (() => void) | undefined): Promise<void>;
 }
 
-export let InMemoryStoreDriver: IInMemoryStoreDriver = new Redis({
-  lazyConnect: true,
-  password: 'foobared',
-});
+export function createInMemoryStoreDriver(
+  options: object
+): IInMemoryStoreDriver {
+  return new Redis({
+    lazyConnect: true,
+    ...options,
+  });
+}

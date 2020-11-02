@@ -1,4 +1,3 @@
-import { type } from 'os';
 import { get } from 'sugar-env';
 
 type Config = {
@@ -12,7 +11,7 @@ type Config = {
   dbPassword: string;
 };
 
-export const config: Config = {
+const config: Config = {
   cookiesSecret: get('COOKIES_SECRET', ''),
   host: get('HOST', '0.0.0.0'),
   httpPort: Number(get('HTTP_PORT', 8080)),
@@ -22,3 +21,5 @@ export const config: Config = {
   dbUser: get('DB_USER', ''),
   dbPassword: get('DB_PASS', ''),
 };
+
+export default config;

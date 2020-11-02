@@ -2,31 +2,39 @@ import { injectable, unmanaged } from 'inversify';
 
 export interface IDBDriver {
   connect(): Promise<any>;
-  find(): any;
-  findByID(): any;
+  find(): Promise<any>;
+  findByID(): Promise<any>;
 }
+
+type TconnectionOptions = {
+  host: string;
+  port: number;
+  password: string;
+};
 
 @injectable()
 export default class DBDriver implements IDBDriver {
   private connection: any;
 
-  constructor(@unmanaged() private connectionOptions: object) {}
+  constructor(@unmanaged() private connectionOptions: TconnectionOptions) {}
 
-  connect() {
-    this.connection = 'connect to db here';
+  async connect() {
+    this.connection = `connect to db using connectionOptions: ${JSON.stringify(
+      this.connectionOptions
+    )}`;
 
-    console.log('connect to db here');
+    console.log(this.connection);
 
     return Promise.resolve();
   }
 
-  find() {
+  async find() {
     console.log(`Method not implemented. ${this.connection}`);
 
     // throw new Error(`Method not implemented. ${this.db}`);
   }
 
-  findByID() {
+  async findByID() {
     throw new Error(`Method not implemented. ${this.connection}`);
   }
 }

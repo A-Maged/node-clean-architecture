@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import { exit } from 'process';
 
-import { config } from './config';
+import config from '@Config';
 
 import routers from '@Router';
 import { IDBDriver } from '@DB';
