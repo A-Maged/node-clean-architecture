@@ -4,8 +4,11 @@ import { IDeviceRepo, IUserRepo } from '@Repos';
 import { IDevice } from '@Entities';
 import { IHttpRequest } from '@Usecases/interfaces/HttpRequest';
 
-// query store for connected-devices that belongs to a user
+// TODO: should the usecase know about the HTTP request ?
+// it should only contain business logic
+// and be agnostic of the caller/environment, so it can be called from cli or web or any client
 
+/* query store for connected-devices that belongs to a user */
 export default async function execute(
   request: IHttpRequest
 ): Promise<IDevice[] | []> {
