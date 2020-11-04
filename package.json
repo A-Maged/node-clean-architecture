@@ -4,7 +4,8 @@
   "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon"
+    "start": "env-cmd ts-node -r tsconfig-paths/register ./src/index.ts",
+    "dev": "nodemon"
   },
   "devDependencies": {
     "@ef-carbon/tspm": "^2.2.5",
