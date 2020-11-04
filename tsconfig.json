@@ -13,8 +13,7 @@
       "@DB": ["src/infrastructure/db/index.ts"],
       "@InMemoryStore": ["src/infrastructure/inMemoryStore/index.ts"],
       "@Web/*": ["src/infrastructure/web/*"],
-      "@Ioc": ["src/ioc.ts"],
-      "@IocTypes": ["src/ioc-types.ts"],
+      "@Ioc": ["src/utils/ioc/index.ts"],
       "@Config": ["src/config.ts"]
     },
     "target": "es6" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */,

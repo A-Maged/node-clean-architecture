@@ -6,8 +6,7 @@ import config from '@Config';
 import * as routers from '@Routers';
 import { IDBDriver } from '@DB';
 import { IInMemoryStoreDriver } from '@InMemoryStore';
-import { container } from 'src/ioc';
-import { IOC_TYPES } from 'src/ioc-types';
+import { container, IOC_TYPES } from '@Ioc';
 import { globalMiddlewares } from '@Web/middlewares';
 
 const app = express();

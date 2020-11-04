@@ -2,7 +2,7 @@ import { inject, injectable } from 'inversify';
 
 import { IDBDriver } from '@DB';
 import { IInMemoryStoreDriver } from '@InMemoryStore';
-import { IOC_TYPES } from 'src/ioc-types';
+import { IOC_TYPES } from '@Ioc';
 import { IHttpRequest } from '@Usecases/interfaces/HttpRequest';
 import { IUser } from '@Entities';
 
