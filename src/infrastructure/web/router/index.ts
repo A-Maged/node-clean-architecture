@@ -1,3 +1,1 @@
-import deviceRouter from './deviceRouter';
-
-export default { deviceRouter };
+export { router as deviceRouter } from './deviceRouter';

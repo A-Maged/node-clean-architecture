@@ -3,7 +3,7 @@ import express from 'express';
 import { exit } from 'process';
 
 import config from '@Config';
-import routers from '@Routers';
+import * as routers from '@Routers';
 import { IDBDriver } from '@DB';
 import { IInMemoryStoreDriver } from '@InMemoryStore';
 import { container } from 'src/ioc';
