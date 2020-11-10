@@ -24,7 +24,9 @@ container
   .bind<IInMemoryStoreDriver>(IOC_TYPES.InMemoryStoreDriver)
   .toConstantValue(
     createInMemoryStoreDriver({
-      password: 'foobared',
+      host: config.inMemoryStoreHost,
+      port: config.inMemoryStorePort,
+      password: config.inMemoryStorePassword,
     })
   );
 

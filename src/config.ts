@@ -9,6 +9,9 @@ type Config = {
   dbPort: number;
   dbUser: string;
   dbPassword: string;
+  inMemoryStoreHost: string;
+  inMemoryStorePort: number;
+  inMemoryStorePassword: string;
 };
 
 const config: Config = {
@@ -20,6 +23,9 @@ const config: Config = {
   dbPort: Number(get('DB_PORT', 3306)),
   dbUser: get('DB_USER', ''),
   dbPassword: get('DB_PASS', ''),
+  inMemoryStoreHost: get('IN_MEMORY_STORE_HOST', '0.0.0.0'),
+  inMemoryStorePort: get('IN_MEMORY_STORE_PORT', 6379),
+  inMemoryStorePassword: get('IN_MEMORY_STORE_PASS', ''),
 };
 
 export default config;
