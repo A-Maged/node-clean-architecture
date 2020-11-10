@@ -14,8 +14,13 @@ const app = express();
 /* Global Middlewares */
 app.use(globalMiddlewares);
 
+/* App Settings */
+app.set('views', 'src/infrastructure/web/views');
+app.set('view engine', 'pug');
+
 /* Register Routes */
 app.use(routers.deviceRouter);
+app.use(routers.homeRouter);
 
 /* Start App */
 run();

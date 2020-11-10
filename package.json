@@ -28,6 +28,7 @@
     "express": "^4.17.1",
     "inversify": "^5.0.1",
     "ioredis": "^4.17.3",
+    "pug": "^3.0.0",
     "reflect-metadata": "^0.1.13",
     "sugar-env": "^1.5.13"
   }
