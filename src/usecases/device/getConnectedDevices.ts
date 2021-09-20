@@ -22,5 +22,5 @@ export default async function execute(
 
   let devices = await deviceRepo.getConnectedDevices(currentUser.id);
 
-  return Promise.resolve(devices);
+  return devices;
 }
